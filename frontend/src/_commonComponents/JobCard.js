@@ -57,7 +57,7 @@ const JobCard = ({ job, cardFor = 'user' }) => {
 
   const handleJobDecline = async () => {
     if (!isDeclined) {
-        let res = await GigsApi.editJob(job.id, { userId1: job.userId2, userId2: job.userId3, userId3: null });
+        let res = await GigsApi.editJob(job.id, { userId1: job.userId2, userId2: job.userId3, userId3: null, accepted: null });
         handleAlert(res.userId1, res.companyId, res, 're-booked');
         // GigsApi.setUserAcceptTimeout(res.userId1, 10);
         setIsDeclined(true);
