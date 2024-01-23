@@ -33,7 +33,7 @@ CREATE TABLE users (
 CREATE TABLE jobs (
   id SERIAL PRIMARY KEY,
   title TEXT NOT NULL,
-  salary INTEGER NOT NULL CHECK (salary >= 0),
+  salary NUMERIC NOT NULL CHECK (salary >= 0),
   job_description TEXT NOT NULL,
   date_start DATE NOT NULL,
   date_end DATE NOT NULL,
@@ -43,9 +43,9 @@ CREATE TABLE jobs (
     REFERENCES users ON DELETE CASCADE,
   user_id_1 TEXT NOT NULL
     REFERENCES users ON DELETE CASCADE,
-  user_id_2 TEXT NOT NULL
+  user_id_2 TEXT 
     REFERENCES users ON DELETE CASCADE,
-  user_id_3 TEXT NOT NULL
+  user_id_3 TEXT 
     REFERENCES users ON DELETE CASCADE,
   accepted TEXT
     REFERENCES users ON DELETE CASCADE

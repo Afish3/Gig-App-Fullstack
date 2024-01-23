@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAlertContext } from './useAlertContext';
 import UserContext from '../auth/UserContext';
-// import GigsApi from '../auth/api';
+import GigsApi from '../auth/api';
 
 const useAlert = () => {
     const currentUser = React.useContext(UserContext);
@@ -23,15 +23,15 @@ const useAlert = () => {
         }
   
         // Handle API calls for alerting via email
-        // await handleBackendAlert(userId, companyId, job, messageType);
+        await handleBackendAlert(userId, companyId, job, messageType);
       } catch (error) {
         console.error('Error handling alert:', error);
       }
     };
   
-    // const handleBackendAlert = async (userId, companyId, job, messageType) => {
-    //   await GigsApi.sendEmailAlert({ userId, companyId, job, messageType });
-    // };
+    const handleBackendAlert = async (userId, companyId, job, messageType) => {
+      await GigsApi.sendEmailAlert({ userId, companyId, job, messageType });
+    };
   
     return { handleAlert };
   };

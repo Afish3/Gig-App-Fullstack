@@ -67,19 +67,15 @@ const UserCard = ({ userId, cardUser, handleAddCandidate, chosenCandidates, book
   const handleResumeOpen = () => setResumeOpen(true);
   const handleResumeClose = () => setResumeOpen(false);
 
-  // const handleColorChange = useCallback(() => {
-  //   console.log(chosenCandidates)
-  //   setHeartRed(prevHeartRed => !prevHeartRed);
-  // }, [chosenCandidates]);
-
   useLayoutEffect(() => {
-    console.log(chosenCandidates)
-    // Check if the current user is in the chosenCandidates array
-    const isUserChosen = chosenCandidates.includes(userId);
+    if (bookForJob) {
+      // Check if the current user is in the chosenCandidates array
+      const isUserChosen = chosenCandidates.includes(userId);
 
-    // Set the heartRed state based on the check
-    setHeartRed(isUserChosen);
-  }, [chosenCandidates, userId]);
+      // Set the heartRed state based on the check
+      setHeartRed(isUserChosen);
+    }
+  }, [chosenCandidates, userId, bookForJob]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -151,9 +147,10 @@ const UserCard = ({ userId, cardUser, handleAddCandidate, chosenCandidates, book
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
+        {bookForJob && 
         <Button onClick={(evt) => handleAdd(evt)} aria-label="add to favorites">
           <FavoriteIcon style={{ fill: isHeartRed ? 'red' : 'blue'}}/>
-        </Button>
+        </Button>}
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
