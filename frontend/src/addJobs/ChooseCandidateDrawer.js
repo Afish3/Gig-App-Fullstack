@@ -151,11 +151,11 @@ function ChooseCandidateDrawer({ jobData, setJobData }) {
             : candidates.map((candidate) => (
                 <UserCard 
                 key={uuid()} 
+                chosenCandidates={jobData.employees}
                 userId={candidate.id}
                 cardUser={candidate} 
                 bookForJob={true} 
                 handleAddCandidate={handleAddCandidate} 
-                selectedCount={selectedCount}
                 />
             )) || null
           }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -51,7 +51,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const UserCard = ({ userId, cardUser, handleAddCandidate, selectedCount, setSelectedCount, bookForJob = false }) => {
+const UserCard = ({ userId, cardUser, handleAddCandidate, chosenCandidates, bookForJob = false }) => {
   const [expanded, setExpanded] = useState(false);
   const [resumeOpen, setResumeOpen] = useState(false);
   const [settingsAnchor, setSettingsAnchor] = useState(null);
@@ -67,7 +67,19 @@ const UserCard = ({ userId, cardUser, handleAddCandidate, selectedCount, setSele
   const handleResumeOpen = () => setResumeOpen(true);
   const handleResumeClose = () => setResumeOpen(false);
 
-  const handleColorChange = () => setHeartRed(!isHeartRed);
+  // const handleColorChange = useCallback(() => {
+  //   console.log(chosenCandidates)
+  //   setHeartRed(prevHeartRed => !prevHeartRed);
+  // }, [chosenCandidates]);
+
+  useLayoutEffect(() => {
+    console.log(chosenCandidates)
+    // Check if the current user is in the chosenCandidates array
+    const isUserChosen = chosenCandidates.includes(userId);
+
+    // Set the heartRed state based on the check
+    setHeartRed(isUserChosen);
+  }, [chosenCandidates, userId]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -87,9 +99,8 @@ const UserCard = ({ userId, cardUser, handleAddCandidate, selectedCount, setSele
   }, [cardUser, userId, user]);
 
   const handleAdd = (evt) => {
-    handleColorChange();
     if (bookForJob) {
-     handleAddCandidate(evt, userId);
+     handleAddCandidate(evt, userId); 
     }
   };
 
