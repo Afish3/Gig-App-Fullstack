@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingSaveButton Component matches snapshot after 1`] = `[Function]`;
+
+exports[`LoadingSaveButton Component matches snapshot before 1`] = `[Function]`;

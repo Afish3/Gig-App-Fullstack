@@ -1,0 +1,38 @@
+.Login{
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);
+  }
+
+  .btn {
+    margin: 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .Login-container {
+    border-radius: 2rem;
+    background-color: white;
+    padding: 3rem;
+    margin-top: 2rem;
+  }
+
+  .Login-title, 
+  .Login-lead {
+    color: black;
+  }
+
+  .Login-lead {
+    margin-bottom: 3rem;
+  }
+
+  .avatarLocked {
+    display: flex;
+    justify-content: center;
+  }

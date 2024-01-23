@@ -1,0 +1,9 @@
+* {
+    color: black;
+}
+
+.Profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

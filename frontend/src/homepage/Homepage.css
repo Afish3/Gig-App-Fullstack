@@ -1,0 +1,42 @@
+.Homepage{
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);
+  }
+
+  .btn {
+    margin: 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .Homepage-container {
+    border-radius: 2rem;
+    background-color: white;
+    padding: 6rem;
+  }
+
+  .Homepage-title, 
+  .Homepage-lead {
+    color: black;
+  }
+
+  .Homepage-lead {
+    margin-bottom: 5rem;
+  }
+
+  .Google-logo {
+    height: 4rem;
+    width: 4rem;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

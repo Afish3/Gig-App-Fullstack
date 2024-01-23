@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "properties": {
+      "company": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 30
+      },
+      "description": {
+        "type": "string",
+        "minLength": 5,
+        "maxLength": 500
+      },
+      "salary": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 3
+      },
+      "location": {
+        "type": "object"
+      },
+      "dateStart": {
+        "type": "string"
+      },
+      "dateEnd": {
+        "type": "string"
+      },
+      "employees": {
+        "type": "array"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "company",
+      "title",
+      "description",
+      "salary",
+      "location",
+      "dateStart",
+      "dateEnd",
+      "employees"
+    ]
+  }
+  
