@@ -47,12 +47,11 @@ function App() {
           let currentUser = await GigsApi.getCurrentUser(id);
 
           setCurrentUser(currentUser);
-          setIsLoaded(true);
         } catch (err) {
           console.error("Error loading user info", err);
         }
       } else {
-
+        loginWithGoogle();
       }
     }
     setIsLoaded(false);
@@ -62,15 +61,6 @@ function App() {
       setIsLoaded(true);
     }
   }, [token, currentUser]);
-
-  useEffect(() => {
-    setIsLoaded(false);
-    if (!currentUser) {
-      loginWithGoogle();
-    } else {
-      setIsLoaded(true);
-    }
-  }, [currentUser]);
 
   async function loginWithGoogle() {
     try {
