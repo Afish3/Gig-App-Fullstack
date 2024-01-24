@@ -21,7 +21,7 @@ export default function MakeJobStepper({ closeModal}) {
   const [activeStep, setActiveStep] = useState(0);
   const { handleAlert } = useAlert();
 
-  const [jobData, setJobData] = useState({
+  const INITIAL_STATE = {
     title: "",
     description: "",
     location: "",
@@ -29,7 +29,9 @@ export default function MakeJobStepper({ closeModal}) {
     dateEnd: "",
     company: currentUser.id,
     employees: [],
-  });
+  };
+
+  const [jobData, setJobData] = useState(INITIAL_STATE);
 
   const handleNext = () => {
     if (activeStep === 0 && jobData.location === "") {
@@ -46,7 +48,10 @@ export default function MakeJobStepper({ closeModal}) {
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    setActiveStep((prevActiveStep) => {
+      if (prevActiveStep === 1) setJobData(INITIAL_STATE);
+      return prevActiveStep - 1
+    });
   };
 
   const handleSubmit = async () => {

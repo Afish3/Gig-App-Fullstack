@@ -1,12 +1,14 @@
-.Homepage{
+  .Homepage{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
     min-height: 100vh;
     min-width: 100vw;
+    font-size: calc(10px + 2vmin);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);
   }
 
   .btn {
@@ -17,9 +19,20 @@
   }
 
   .Homepage-container {
+    opacity: .96;
+    /* transition: opacity 1s ease-in-out; */
+    z-index: 1;
+    position: relative;
+    height: 55vh;
     border-radius: 2rem;
     background-color: white;
-    padding: 6rem;
+    padding: 0 1.8rem 4rem 1.8rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .Homepage-container.logged-in {
+    height: 70vh;
   }
 
   .Homepage-title, 
@@ -28,7 +41,7 @@
   }
 
   .Homepage-lead {
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
   }
 
   .Google-logo {

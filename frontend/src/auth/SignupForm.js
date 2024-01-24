@@ -3,6 +3,8 @@ import UserContext from "../auth/UserContext";
 import { useNavigate, Link as ReactLink } from "react-router-dom";
 import Alert from "../_commonComponents/Alert";
 import BASE_URL from "../frontendUrl";
+import backgroundPhoto from '../static/gigBearPhoto.png';
+
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -70,6 +72,19 @@ const SignupForm =  ({ signup, userType }) => {
 
     return (
             <div className="Signup">
+                <div
+                style={{
+                backgroundImage: `url(${backgroundPhoto})`,
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                }}
+                ></div>
                 <div className="Signup-container">
                     <h1 className="Signup-title">Gig Bear</h1>
 
@@ -78,13 +93,11 @@ const SignupForm =  ({ signup, userType }) => {
                         <p className="Signup-lead">Welcome back {currentUser.username}</p>
                     </>
                     : <>
-                        <p className="Signup-lead">Welcome to Gig Bears!</p>
-
                         <ThemeProvider theme={defaultTheme}>
                             <Container component="main" maxWidth="xs">
                                 <CssBaseline />
                                 <div className="avatarLocked"> 
-                                    <Avatar sx={{ bgcolor: 'secondary.main' }} >
+                                    <Avatar sx={{ bgcolor: 'darkgreen' }} >
                                         <LockOutlinedIcon />
                                     </Avatar>
                                 </div>
@@ -216,7 +229,7 @@ const SignupForm =  ({ signup, userType }) => {
                                     </Grid>
                                     </Grid>
                                 </Box>
-                                <Copyright sx={{ mt: 5 }} />
+                                <Copyright sx={{ mt: 4 }} />
                             </Container>
                         </ThemeProvider>
                     </>

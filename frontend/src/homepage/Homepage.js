@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import UserContext from "../auth/UserContext";
 
 import ProfileProgressDisplay from '../_commonComponents/ProfileProgressDisplay';
+import backgroundPhoto from '../static/gigBearPhoto.png';
 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -19,8 +20,21 @@ const Homepage = ({ userType }) => {
   }
 
   return (
-      <div className="Homepage">
-        <div className="Homepage-container">
+      <div className={`Homepage`}>
+        <div
+        style={{
+          backgroundImage: `url(${backgroundPhoto})`,
+          position: 'absolute',
+          top: '0',
+          left: '0',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      ></div>
+        <div className={`Homepage-container${currentUser ? ' logged-in' : ''}`}>
           <h1 className="Homepage-title">Gig Bear</h1>
           <p className="Homepage-lead">Welcome to Gig Bears!</p>
           

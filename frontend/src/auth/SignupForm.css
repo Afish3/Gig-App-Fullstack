@@ -5,8 +5,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);
+    font-size: calc(4px + 2vmin);
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
   }
 
   .btn {
@@ -17,10 +19,15 @@
   }
 
   .Signup-container {
+    opacity: .96;
+    z-index: 1;
+    position: relative;
+    height: 100vh;
     border-radius: 2rem;
     background-color: white;
-    padding: 3rem;
-    margin-top: 2rem;
+    padding: 0 1rem 4rem 1rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
   }
 
   .Signup-title, 

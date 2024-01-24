@@ -68,7 +68,7 @@ const UserCard = ({ userId, cardUser, handleAddCandidate, chosenCandidates, book
   const handleResumeClose = () => setResumeOpen(false);
 
   useLayoutEffect(() => {
-    if (bookForJob) {
+    if (bookForJob && chosenCandidates.length <= 3) {
       // Check if the current user is in the chosenCandidates array
       const isUserChosen = chosenCandidates.includes(userId);
 
@@ -148,7 +148,7 @@ const UserCard = ({ userId, cardUser, handleAddCandidate, chosenCandidates, book
       </CardContent>
       <CardActions disableSpacing>
         {bookForJob && 
-        <Button onClick={(evt) => handleAdd(evt)} aria-label="add to favorites">
+        <Button onClick={(evt) => handleAdd(evt)} aria-label="add to favorites" >
           <FavoriteIcon style={{ fill: isHeartRed ? 'red' : 'blue'}}/>
         </Button>}
         <IconButton aria-label="share">

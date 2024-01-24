@@ -3,6 +3,7 @@ import UserContext from "../auth/UserContext";
 import { useNavigate, Link as ReactLink } from "react-router-dom";
 import Alert from "../_commonComponents/Alert";
 import BASE_URL from "../frontendUrl";
+import backgroundPhoto from '../static/gigBearPhoto.png';
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -67,6 +68,19 @@ const LoginForm = ({ login }) => {
 
     return (
             <div className="Login">
+                <div
+                style={{
+                backgroundImage: `url(${backgroundPhoto})`,
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                }}
+                ></div>
                 <div className="Login-container">
                     <h1 className="Login-title">Gig Bear</h1>
 

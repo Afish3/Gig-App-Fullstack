@@ -1,4 +1,4 @@
-.UserType{
+/* .UserType{
     min-height: 100vh;
     min-width: 100vw;
     display: flex;
@@ -7,6 +7,63 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);
+  } */
+
+  .UserType{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .UserType-container {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+    position: relative;
+    height: 55vh;
+    border-radius: 2rem;
+    background-color: white;
+    padding: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .UserType.show-content .UserType-container {
+    opacity: .96;
+  }
+
+  .UserType-title, 
+  .UserType-lead {
+    color: black;
+  }
+
+  .UserType-lead {
+    margin-bottom: 3rem;
+  }
+
+  .Google-logo {
+    height: 4rem;
+    width: 4rem;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .btn {
@@ -16,17 +73,17 @@
     font-size: 1.2rem;
   }
 
-  .UserType-container {
+  /* .UserType-container {
     border-radius: 2rem;
     background-color: white;
     padding: 6rem;
-  }
+  } */
 
-  .UserType-title, 
+  /* .UserType-title, 
   .UserType-lead {
     color: black;
   }
 
   .UserType-lead {
     margin-bottom: 5rem;
-  }
+  } */

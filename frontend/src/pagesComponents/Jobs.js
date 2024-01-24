@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import UserContext from "../auth/UserContext";
 import JobCard from '../_commonComponents/JobCard';
+import backgroundPhoto from '../static/gigBearPhoto.png';
 
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
@@ -37,6 +38,19 @@ const Jobs = () => {
 
     return (
         <div className='Jobs'>
+        <div
+            style={{
+            backgroundImage: `url(${backgroundPhoto})`,
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            }}
+            ></div>
           <div className="Jobs-container">
             <h1 className="Jobs-title">Jobs</h1>
 

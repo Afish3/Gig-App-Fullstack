@@ -4,7 +4,7 @@ import UserContext from "../auth/UserContext";
 import {v4 as uuid} from 'uuid';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { cyan } from '@mui/material/colors';
+import { lightBlue } from '@mui/material/colors';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -25,9 +25,13 @@ import './Nav.css';
 const pages = ['Jobs', 'Profile', 'Settings'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
+
+
 const theme = createTheme({
     palette: {
-      primary: cyan,
+      primary: {
+        main: lightBlue[500]
+      },
     },
   });
 
@@ -83,20 +87,20 @@ const NavigationBar = ({ logout }) => {
             <AppBar position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
-                    <FlutterDashIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <FlutterDashIcon color={'white'} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
+                        href="/"
                         sx={{
                         mr: 2,
                         display: { xs: 'none', md: 'flex' },
                         fontFamily: 'monospace',
                         fontWeight: 700,
                         letterSpacing: '.3rem',
-                        color: 'inherit',
                         textDecoration: 'none',
+                        color: 'white'
                         }}
                     >
                         <NavLink to={"/"}> 

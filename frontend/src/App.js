@@ -122,7 +122,7 @@ function App() {
         <BrowserRouter>
           <div className="App">
             <header className="App-header">
-              <Nav logout={logout}/>
+              <Nav logout={logout} />
               { (!userType && !currentUser) 
                 ? <UserType setType={setUserType} /> 
                 : <Routes login={login} signup={signup} userType={userType} /> 
