@@ -26,20 +26,20 @@ passport.use(new GoogleStrategy({
 
         // CREATE USER
         const userData = {
-        id: profile.id,
-        username: profile.displayName.replace(/\s+/g, '-'), //Username is full name replacing spaces with "-"
-        loginType: profile.provider,
-        passsword: null,
-        firstName: profile.name.givenName,
-        lastName: profile.name.familyName,
-        dateRegistered: new Date(),
-        email: profile.emails[0].value,
-        userType: "user"
+            id: profile.id,
+            username: profile.displayName.replace(/\s+/g, '-'), //Username is full name replacing spaces with "-"
+            loginType: profile.provider,
+            passsword: null,
+            firstName: profile.name.givenName,
+            lastName: profile.name.familyName,
+            dateRegistered: new Date(),
+            email: profile.emails[0].value,
+            userType: "user"
         }
         
         const createUser = async (userData) => {
-        const newUser = await User.register(userData);
-        return newUser;
+            const newUser = await User.register(userData);
+            return newUser;
         }
 
         const registeredUser = await createUser(userData);
