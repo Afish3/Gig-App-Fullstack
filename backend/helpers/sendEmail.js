@@ -1,11 +1,10 @@
 const nodemailer = require('nodemailer');
-let pass = "gcvp anuh wvpi bned";
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'gig4bears@gmail.com',
-    pass: 'gcvpanuhwvpibned',
+    pass: process.env.NODE_MAILER_GOOGLE_MAIL_PASSWORD,
   },
 });
 

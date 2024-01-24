@@ -26,7 +26,6 @@ const autocompleteService = { current: null };
 const geocoder = { current: null };
 
 const LocationSelector = ({ value, setValue }) => {
-//   const [value, setValue] = useState(null);
   const [inputValue, setInputValue] = useState('');
   const [options, setOptions] = useState([]);
   const loaded = useRef(false);
