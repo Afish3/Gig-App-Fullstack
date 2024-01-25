@@ -15,6 +15,7 @@
     opacity: .96;
     z-index: 1;
     position: relative;
+    overflow: scroll;
     height: 70vh;
     width: 30vw;
     border-radius: 2rem;

@@ -97,7 +97,7 @@ const SignupForm =  ({ signup, userType }) => {
                             <Container component="main" maxWidth="xs">
                                 <CssBaseline />
                                 <div className="avatarLocked"> 
-                                    <Avatar sx={{ bgcolor: 'darkgreen' }} >
+                                    <Avatar sx={{ bgcolor: 'orange' }} >
                                         <LockOutlinedIcon />
                                     </Avatar>
                                 </div>
@@ -217,7 +217,7 @@ const SignupForm =  ({ signup, userType }) => {
                                     type="submit"
                                     fullWidth
                                     variant="contained"
-                                    sx={{ mt: 3, mb: 2 }}
+                                    sx={{ mt: 3, mb: 2, bgcolor: 'darkorange' }}
                                     >
                                     Sign Up
                                     </Button>

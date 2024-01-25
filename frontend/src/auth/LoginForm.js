@@ -36,7 +36,13 @@ function Copyright(props) {
     );
   }
 
-const defaultTheme = createTheme();
+const defaultTheme = createTheme({
+    palette: {
+      primary: {
+        main: '#2e7d32'
+      },
+    },
+  });
 
 const LoginForm = ({ login }) => {
     const { currentUser } = useContext(UserContext);
@@ -95,7 +101,7 @@ const LoginForm = ({ login }) => {
                             <Container component="main" maxWidth="xs">
                                 <CssBaseline />
                                 <div className="avatarLocked"> 
-                                    <Avatar sx={{ bgcolor: 'secondary.main' }} >
+                                    <Avatar sx={{ bgcolor: 'success.light' }} >
                                         <LockOutlinedIcon />
                                     </Avatar>
                                 </div>

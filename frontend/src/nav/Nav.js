@@ -4,7 +4,7 @@ import UserContext from "../auth/UserContext";
 import {v4 as uuid} from 'uuid';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { lightBlue } from '@mui/material/colors';
+// import { lightGreen } from '@mui/material/colors';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -30,7 +30,7 @@ const pages = ['Jobs', 'Profile', 'Settings'];
 const theme = createTheme({
     palette: {
       primary: {
-        main: lightBlue[500]
+        main: '#2e7d32'
       },
     },
   });
@@ -48,7 +48,7 @@ const NavigationBar = ({ logout }) => {
                 <AppBar position="static" sx={{ width: '100vw' }}>
                     <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        <NavLink to="/" style={{textDecoration: "none", color: "black"}}>
+                        <NavLink to="/" style={{textDecoration: "none", color: "black", marginLeft: '2rem'}}>
                         Gig Bears
                         </NavLink>
                     </Typography>
@@ -84,10 +84,11 @@ const NavigationBar = ({ logout }) => {
         };
     
         return (
+            <ThemeProvider theme={theme}>
             <AppBar position="static">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
-                    <FlutterDashIcon color={'white'} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <FlutterDashIcon color={'white'} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, textDecoration: 'none' }} />
                     <Typography
                         variant="h6"
                         noWrap
@@ -214,6 +215,7 @@ const NavigationBar = ({ logout }) => {
                     </Toolbar>
                 </Container>
             </AppBar>
+            </ThemeProvider>
             )
         }
 

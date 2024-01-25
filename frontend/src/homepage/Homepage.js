@@ -8,9 +8,13 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Logo from '../static/google-logo.svg';
 import { Link } from "react-router-dom";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import './Homepage.css';
 
 /** Site homepage */
+
+const theme = createTheme();
 
 const Homepage = ({ userType }) => {
   const { currentUser } = useContext(UserContext);
@@ -20,6 +24,7 @@ const Homepage = ({ userType }) => {
   }
 
   return (
+    <ThemeProvider theme={theme}>
       <div className={`Homepage`}>
         <div
         style={{
@@ -57,7 +62,7 @@ const Homepage = ({ userType }) => {
                           </div>
                           <p className="btn">Log in with Google</p>
                         </Button> : null}
-                        <Button id="email-login-btn" color="info" variant="contained" size="small">
+                        <Button id="email-login-btn" color="success" variant="contained" size="small">
                         <Link className="btn"
                             to="/login">
                             Log in with email
@@ -74,6 +79,7 @@ const Homepage = ({ userType }) => {
               )}
         </div>
       </div>
+      </ThemeProvider>
   );
 }
 

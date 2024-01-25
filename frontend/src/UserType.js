@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from 'react'; 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import backgroundVideo from './static/gigBearVid.mp4';
 import './UserType.css';
 
 /** Site UserType */
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#2e7d32',
+    },
+    secondary: {
+      main: '#4caf50'
+    }
+  },
+});
 
 const UserType = ({ setType }) => {
   const [showContent, setShowContent] = useState(false);
@@ -42,6 +54,7 @@ const UserType = ({ setType }) => {
   };
 
   return (
+    <ThemeProvider theme={theme}>
       <div className={`UserType${showContent ? ' show-content' : ''}`}>
         <video
         id="userType-background-video"
@@ -60,13 +73,14 @@ const UserType = ({ setType }) => {
                     <Button id="user-btn" color="primary" variant="contained" size="small" onClick={handleUser}>
                         <p className="btn">Cub / Employee </p>
                     </Button>
-                    <Button id="company-btn" color="info" variant="contained" size="small" onClick={handleCompany}>
+                    <Button id="company-btn" color="secondary" variant="contained" size="small" onClick={handleCompany}>
                         <p className="btn">Big Bear / Employer </p>
                     </Button>
                 </Stack>
             </div>
         </div>
       </div>
+      </ThemeProvider>
   );
 }
 
