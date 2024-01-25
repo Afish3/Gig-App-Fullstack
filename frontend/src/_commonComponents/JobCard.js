@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import Typography from '@mui/material/Typography';
-import { blue } from '@mui/material/colors';
+import { lightGreen } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Rating from '@mui/material/Rating';
@@ -68,10 +68,10 @@ const JobCard = ({ job, cardFor = 'user' }) => {
     <Card sx={{ maxWidth: 800, marginBottom: "2rem" }} >
       <CardHeader
         avatar={ job.companyPhoto
-          ? <Avatar sx={{ bgcolor: blue[500] }} aria-label={`company ${job.companyName}`}>
+          ? <Avatar src={job.companyPhoto} aria-label={`company ${job.companyName}`}> </Avatar>
+          : <Avatar sx={{ bgcolor: lightGreen[800] }} aria-label={`company ${job.companyName}`}>
               {job.companyName[0].toUpperCase()}
-            </Avatar>
-          : <Avatar src={job.companyPhoto} aria-label={`company ${job.companyName}`}> </Avatar>
+            </Avatar> 
         }
         action={
         <>

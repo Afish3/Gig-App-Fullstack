@@ -1,13 +1,17 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import API from "../auth/api";
 import { v4 as uuid } from 'uuid';
 import moment from 'moment';
 import Modal from 'react-modal';
 
+import LoadingSaveButton from '../_commonComponents/LoadingSaveButton';
+
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import MuiAlert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
 
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -20,16 +24,30 @@ Modal.setAppElement('#root');
 
 const InteractiveCalendar = withDragAndDrop(Calendar);
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+
 const GigsCalendar = ({ username, availability }) => {
     const [events, setEvents] = useState( availability || [] );
     const [createModalIsOpen, setCreateModalIsOpen] = useState(false);
     const [selectModalIsOpen, setSelectModalIsOpen] = useState(false);
+    const [open, setOpen] = useState(false);
+
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [newEvent, setNewEvent] = useState({
         title: '',
         start: null,
         end: null,
       });
+
+    useEffect(() => {
+        const updateAPI = async () => {
+            let res = await API.editProfile(username, { availability: [ ...events ] });
+            return res;
+        }
+        updateAPI();
+    }, [events, username])
 
     const openCreateModal = () => setCreateModalIsOpen(true);
     const closeCreateModal = () => setCreateModalIsOpen(false);
@@ -97,15 +115,23 @@ const GigsCalendar = ({ username, availability }) => {
         }));
     };
 
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setOpen(false);
+      };
+
     async function handleSubmit() {
         try {
-            setEvents([...events, newEvent]);
-            let res = await API.editProfile(username, { availability: [ ...events ] });
-            return res;
+            setEvents(prevEvents => [...prevEvents, newEvent]);
+            closeCreateModal();
+            setOpen(true);
         } catch (error) {
             console.error(error);
         }
-    }
+    };
 
     return (
         <Stack spacing={20} direction="row">
@@ -127,9 +153,8 @@ const GigsCalendar = ({ username, availability }) => {
                 <p>Interact with the calendar</p>
                 <p>to update availabile dates and times.</p>
                 <p>Click to update when you are finished!</p>
-                <Button variant="contained" onClick={handleSubmit} style={{marginTop: "3rem", height: "3rem"}}>
-                        Update availability
-                </Button>
+                <LoadingSaveButton text="Update availability" handleClick={handleSubmit} style={{display: 'flex', justifyContent: 'center'}} />
+
             </div>
             <Modal
                 isOpen={createModalIsOpen}
@@ -170,9 +195,9 @@ const GigsCalendar = ({ username, availability }) => {
                         />
                     </label>
                     <br />
-                    <button type="button" onClick={handleSubmit}>
+                    <Button color='success' onClick={handleSubmit}>
                         Create Event
-                    </button>
+                    </Button>
                 </form>
             </Modal>
             <Modal
@@ -182,10 +207,15 @@ const GigsCalendar = ({ username, availability }) => {
                 className="modal-content" 
                 overlayClassName="modal-overlay"
             >
-                <button onClick={handleDeleteEvent} >
+                <Button color='error' onClick={handleDeleteEvent} >
                     Delete Availability
-                </button>
+                </Button>
             </Modal>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                    Availability has been updated!
+                </Alert>
+            </Snackbar>
         </Stack>
     )}
 

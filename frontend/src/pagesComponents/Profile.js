@@ -55,7 +55,7 @@ const Profile = ({ ...props }) => {
   const [ loading, setLoading ] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const locJSON = JSON.parse(currentUser.areaCode)
+  const locJSON = JSON.parse(currentUser.areaCode);
   const loc = locJSON ? locJSON.description : "";
   const [location, setLocation] = useState(loc);
 
@@ -151,8 +151,7 @@ const Profile = ({ ...props }) => {
                 </Box>
 
             <Stack spacing={2} direction="row" style={{marginBottom: "2rem"}}>
-                <Button variant="outlined" onClick={() => redirect("/")}>Cancel</Button>
-                {/* <Button variant="contained" onClick={handleSubmit}>Save</Button> */}
+                <Button color='success' variant="outlined" onClick={() => redirect("/")}>Cancel</Button>
                 <LoadingSaveButton text="Save" handleClick={handleSubmit} />
             </Stack>
 

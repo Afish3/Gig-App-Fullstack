@@ -45,6 +45,7 @@ const LoadingSaveButton = ({ text, handleClick }) => {
           disabled={loading}
           onClick={handleButtonClick}
           size='large'
+          color='success'
         >
           {text}
         </Button>
