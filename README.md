@@ -1,8 +1,8 @@
-# Gig Economy Platform
+# Gig Bears
 
 ## Overview
 
-This gig economy platform is designed to streamline the process of hiring and finding one-off jobs in a specific region. It serves both companies looking for skilled professionals and individuals seeking job opportunities. The platform is built with a backend in Express and Node.js, while the frontend is developed using React and Material-UI (MUI). The application is hosted on AWS at [https://www.gigbears.com](https://www.gigbears.com).
+Gig Bears is a gig economy platform designed to streamline the process of hiring and finding one-off jobs in a specific region. It serves both companies looking for skilled professionals and individuals seeking job opportunities. The platform is built with a backend in Express and Node.js, while the frontend is developed using React and Material-UI (MUI). The application is hosted on AWS at [https://www.gigbears.com](https://www.gigbears.com).
 
 ## Features
 
